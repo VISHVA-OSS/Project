@@ -1,0 +1,93 @@
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:15px 40px;
+  background: linear-gradient(90deg,#0f2027,#203a43,#2c5364);
+}
+
+/* Logo Left */
+.logo{
+  font-size:40px;
+  font-weight:bold;
+}
+
+.logo span:nth-child(1){color:#f5c242;}
+.logo span:nth-child(2){color:#f5c242;}
+.logo span:nth-child(3){color:#f5c242;}
+.logo span:nth-child(4){color:#f5c242;}
+.logo span:nth-child(5){color:#4CAF50;}
+.logo span:nth-child(6){color:#4CAF50;}
+/* Menu Center */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:40px;
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  font-size:18px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#00e5ff;
+}
+
+/* table */
+
+.product-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.product-table thead{
+background:#1f3c4d;
+color:white;
+}
+
+.product-table th,
+.product-table td{
+padding:14px;
+text-align:left;
+border-bottom:1px solid #ddd;
+}
+
+.product-table tbody tr:hover{
+background:#f1f1f1;
+transition:0.3s;
+}
+
+/* Button */
+
+.btn{
+background:#007bff;
+color:white;
+padding:8px 14px;
+text-decoration:none;
+border-radius:5px;
+font-size:14px;
+}
+
+.btn:hover{
+background:#0056b3;
+}
+
+.container{
+width:85%;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}

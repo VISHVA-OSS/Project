@@ -1,0 +1,69 @@
+
+.border{
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 30px;
+}
+.border1{
+    height: 70px;
+}
+.button {
+  padding: 10px 25px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(270deg, #ff00cc, #333399, #00ffff);
+  background-size: 400% 400%;
+  animation: rgbButton 4s ease infinite;
+  transition: 0.3s;
+}
+
+@keyframes rgbButton {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.color{
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(-45deg, #ff00cc, #333399, #00ffff, #ff0000);
+      background-size: 400% 400%;
+      animation: rgbMove 8s ease infinite;
+}
+@keyframes rgbMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.text{
+    text-align: center;
+}
+.border,
+.border1 {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* When error */
+.error-border {
+  border: 2px solid red !important;
+}
+
+/* Optional: Green border when valid */
+.border:focus {
+  border: 2px solid hsl(149, 100%, 50%);
+  outline: none;
+}
