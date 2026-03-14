@@ -7,6 +7,10 @@ import Product from "./Product";
 import Form from "./Form";
 import List from "./List";
 import ListDetails from "./ListDetails";
+import Loptop from "./Loptop";
+import AllProducts from "./AllProduct";
+import Mobile from "./Moblie";
+
 
 function App() {
   return (
@@ -26,8 +30,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<Product />} />
         <Route path="/list" element={<List />} />
-        <Route path="/product/:id" element={<ListDetails />} />
+        <Route path="/mobiles" element={<Mobile />} />
+        <Route path="/laptops" element={<Loptop />} />
+        <Route path="/allproducts" element={<AllProducts />} />
         <Route path="/form" element={<Form />} />
+        
+        
       </Routes>
       </>
   );

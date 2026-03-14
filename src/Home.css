@@ -91,3 +91,10 @@ padding:30px;
 border-radius:8px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
+.mobile{
+  background-image: url("https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRyBviluQGYeSx-EnC9mJG7Gp0eyhjtZhhRDAyQV6k-0JTyVj-ErRTUbpzzmmkbBNLA2WdNg9AdjjxxEUTkaVU0L_IiB8Uh");
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
