@@ -5,11 +5,10 @@ import  Home  from "./Home";
 import { Route } from "react-router-dom";
 import Product from "./Product";
 import Form from "./Form";
-import List from "./List";
-import ListDetails from "./ListDetails";
 import Loptop from "./Loptop";
 import AllProducts from "./AllProduct";
 import Mobile from "./Moblie";
+import OurProducts from "./OurProducts";
 
 
 function App() {
@@ -28,8 +27,15 @@ function App() {
       <Routes>
         < Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/product" element={<Product />}>
+           <Route path="ourproduct" element={<OurProducts />}>
+
+    <Route path="mobile" element={<Mobile />} />
+    <Route path="laptop" element={<Loptop />} />
+    <Route path="allproducts" element={<AllProducts />} />
+
+  </Route>
+        </Route>
         <Route path="/mobiles" element={<Mobile />} />
         <Route path="/laptops" element={<Loptop />} />
         <Route path="/allproducts" element={<AllProducts />} />
