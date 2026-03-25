@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "name": "mi phone",
+      "price": 15000,
+      "category": "moblie",
+      "id": "hpfCIrQJlsA"
+    },
+    {
+      "name": "hp",
+      "price": 20000,
+      "category": "laptop",
+      "id": "fdniCgCCsxU"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

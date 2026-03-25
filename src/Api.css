@@ -1,0 +1,141 @@
+/* GLOBAL BACKGROUND */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  min-height: 100vh;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* INPUTS + BUTTONS */
+input, select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* INPUT STYLE */
+input, select {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* BUTTON STYLE */
+button {
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* DELETE BUTTON */
+.card button:first-of-type {
+  background: #ff4d4d;
+  color: white;
+}
+
+.card button:first-of-type:hover {
+  background: #e60000;
+}
+
+/* EDIT BUTTON */
+.card button:last-of-type {
+  background: #ffcc00;
+  color: #333;
+}
+
+.card button:last-of-type:hover {
+  background: #e6b800;
+}
+
+/* ADD BUTTON (TOP) */
+.search-sort button {
+  background: #4caf50;
+  color: white;
+}
+
+.search-sort button:hover {
+  background: #3d8b40;
+}
+
+/* CARD DESIGN */
+.card {
+  border-radius: 15px;
+  padding: 20px;
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CARD HOVER EFFECT */
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* CARD TEXT */
+.card h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 5px 0;
+  opacity: 0.9;
+}
+
+/* CARD GLOW EFFECT */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(25deg);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* SEARCH + FORM GROUP */
+.search-sort {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .top-bar {
+    flex-direction: column;
+  }
+
+  input, select, button {
+    width: 100%;
+  }
+}

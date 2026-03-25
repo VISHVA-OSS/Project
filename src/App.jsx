@@ -4,11 +4,12 @@ import About from "./About";
 import  Home  from "./Home";
 import { Route } from "react-router-dom";
 import Product from "./Product";
-import Form from "./Form";
+import Login from "./Login";
 import Loptop from "./Loptop";
 import AllProducts from "./AllProduct";
 import Mobile from "./Moblie";
 import OurProducts from "./OurProducts";
+import ListDetails from "./ListDetails"
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/product">Product</Link></li>
-                    <li><Link to="/form">Form</Link></li>
+                    
                 </ul>
             </nav>
             </div>
@@ -36,10 +37,11 @@ function App() {
 
   </Route>
         </Route>
-        <Route path="/mobiles" element={<Mobile />} />
+         <Route path="/" element={<Mobile />} />
+        <Route path="/listdetails/:id" element={<ListDetails />} />
         <Route path="/laptops" element={<Loptop />} />
         <Route path="/allproducts" element={<AllProducts />} />
-        <Route path="/form" element={<Form />} />
+        <Route path="/login" element={<Login />} />
         
         
       </Routes>

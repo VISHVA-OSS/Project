@@ -1,34 +1,19 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import Api from './Api.jsx'
 import About from './About.jsx'
 import Product from './Product.jsx'
 import Form from './Form.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {createBrowserRouter, BrowserRouter } from 'react-router-dom'
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "/products",
-    element: <Product />,
-  },
-  {
-    path:"/form",
-    element: <Form />
-  }
-]);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <Api/>
     </BrowserRouter>
   </StrictMode>,
 )

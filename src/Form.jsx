@@ -1,9 +1,16 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./index.css";
 import "./App.css";
 
 function FullForm() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // ✅ get redirect path (where user came from)
+  const redirectPath = location.state?.from || "/";
+
   const {
     register,
     handleSubmit,
@@ -11,21 +18,29 @@ function FullForm() {
     reset,
     formState: { errors }
   } = useForm({
-    mode:"onBlur"
+    mode: "onBlur"
   });
 
   const password = watch("password");
 
   const onSubmit = (data) => {
     console.log(data);
-    alert("Form Submitted Successfully!");
+
+    // ✅ mark user as logged in
+    localStorage.setItem("isLoggedIn", "true");
+
+    alert("Login Successful!");
+
+    // ✅ redirect back to product page
+    navigate(redirectPath);
+
     reset();
   };
 
   return (
     <div className="color">
       <form onSubmit={handleSubmit(onSubmit)} className="form-container">
-        <h2 className="text">Registration Form</h2>
+        <h2 className="text"> Login Form</h2>
 
         <input
           className={`border ${errors.firstName ? "error-border" : ""}`}
@@ -113,7 +128,7 @@ function FullForm() {
         />
         {errors.phone && <p className="error">{errors.phone.message}</p>}
 
-          {/* Gender */}
+        {/* Gender */}
         <label>Gender:</label>
         <div>
           <label>
@@ -125,18 +140,15 @@ function FullForm() {
             Male
           </label>
           <label>
-            <input
-              type="radio"
-              value="Female"
-              {...register("gender")}
-            />
+            <input type="radio" value="Female" {...register("gender")} />
             Female
           </label>
         </div>
         {errors.gender && <p className="error">{errors.gender.message}</p>}
 
-        {/* Date of Birth */}
-        <input style={{borderRadius: "5px", height: "30px"}}
+        {/* DOB */}
+        <input
+          style={{ borderRadius: "5px", height: "30px" }}
           type="date"
           {...register("dob", { required: "Select Date of Birth" })}
         />
@@ -175,7 +187,7 @@ function FullForm() {
         />
         {errors.address && <p className="error">{errors.address.message}</p>}
 
-        {/* Profile Picture */}
+        {/* Profile Pic */}
         <input
           type="file"
           {...register("profilePic", { required: "Upload profile picture" })}
@@ -195,7 +207,7 @@ function FullForm() {
         {errors.terms && <p className="error">{errors.terms.message}</p>}
 
         <button type="submit" className="button">
-         Submit
+          Submit
         </button>
 
         <button
