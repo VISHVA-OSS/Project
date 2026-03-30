@@ -1,42 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../src/slice/cartslice";
 import "./App.css";
-
-const products = [
-  { id: 1, name: "iPhone 14", price: 80000, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZXicEBUJd7cZW6vXuNit9R6JeK_G7O1aL1w&s", category: "allproduct" },
-  { id: 2, name: "MI", price: 10000, image: "https://images.financialexpressdigital.com/2024/12/REDMI-NOTE-14-PRO-PLUS_20241206141718.jpg?w=1200", category: "allproduct" },
-  { id: 5, name: "HP Laptop", price: 55000, image: "  data:image/jpeg;base64,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",  category: "allproduct" },
-  { id: 4, name: "MI Laptop", price: 50000, image: "data:image/jpeg;base64,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", category: "allproduct" },
-  { id: 3, name: "Dell Laptop", price: 60000, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvCeu4W6YdbkqM9a0vWgEtlCesbqgz0UUbA&s", category: "allproduct" },
-];
 
 function Mobile() {
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // ✅ Redux
 
-  const [cart, setCart] = useState([]);
+  // ✅ API state
+  const [products, setProducts] = useState([]);
   const [showToast, setShowToast] = useState(false);
 
+  const API = "http://localhost:3000/products";
+
+  // ✅ Fetch products from API
+  useEffect(() => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.log("Error:", err));
+  }, []);
+
+  // ✅ Filter products
   const mobileProducts = products.filter(
     (product) => product.category === "allproduct"
   );
-  
 
- const handleAddToCart = (product, e) => {
-  e.stopPropagation(); // prevent card click
+  // ✅ Add to cart (Redux)
+  const handleAddToCart = (product, e) => {
+    e.stopPropagation();
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
 
-  if (isLoggedIn === "true") {
-    // 🔴 If TRUE → redirect to login
-    navigate("/login");
-  } else {
-    // ✅ If FALSE → add to cart
-    setCart([...cart, product]);
-    setShowToast(true);
+    if (isLoggedIn !== "true") {
+      navigate("/login");
+    } else {
+      dispatch(addToCart(product)); // 🔥 FIX
 
-    setTimeout(() => setShowToast(false), 2000);
-  }
-};
+      setShowToast(true);
+      setTimeout(() => setShowToast(false), 2000);
+    }
+  };
 
   return (
     <div className="page-container">
@@ -58,7 +63,6 @@ function Mobile() {
             <h3>{product.name}</h3>
             <p>₹{product.price}</p>
 
-            {/* ✅ Add to Cart */}
             <button
               className="btn btn-success"
               onClick={(e) => handleAddToCart(product, e)}
@@ -69,7 +73,7 @@ function Mobile() {
         ))}
       </div>
 
-      {/* ✅ Bootstrap Toast */}
+      {/* ✅ Toast */}
       {showToast && (
         <div className="toast show position-fixed bottom-0 end-0 m-3">
           <div className="toast-header">
@@ -89,4 +93,3 @@ function Mobile() {
 }
 
 export default Mobile;
-

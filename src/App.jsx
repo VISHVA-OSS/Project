@@ -4,6 +4,7 @@ import About from "./About";
 import  Home  from "./Home";
 import { Route } from "react-router-dom";
 import Product from "./Product";
+import Cart from "./Cart"
 import Login from "./Login";
 import Loptop from "./Loptop";
 import AllProducts from "./AllProduct";
@@ -21,6 +22,7 @@ function App() {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/product">Product</Link></li>
+                    <li><Link to="/cart">Cart</Link></li>
                     
                 </ul>
             </nav>
@@ -42,7 +44,7 @@ function App() {
         <Route path="/laptops" element={<Loptop />} />
         <Route path="/allproducts" element={<AllProducts />} />
         <Route path="/login" element={<Login />} />
-        
+         <Route path="/cart" element={<Cart />}></Route>
         
       </Routes>
       </>

@@ -1,23 +1,75 @@
+
 {
   "products": [
     {
-      "name": "mi phone",
+      "name": "Iphone 14",
       "price": 15000,
-      "category": "moblie",
-      "id": "hpfCIrQJlsA"
+      "category": "mobile",
+      "id": "hpfCIrQJlsA",
+      "image":["/public/Iphone.jpg"]
     },
     {
-      "name": "hp",
-      "price": 20000,
-      "category": "laptop",
-      "id": "fdniCgCCsxU"
-    },
-    {
-      "name": "android",
+      "name": "mi phone",
       "price": 12000,
       "category": "mobile",
-      "id": "bK1g1hDGXuM"
-    }
+      "id": "bK1g1hDGXuM",
+      "image":["/public/mi.jpg"]
+    },
+    {
+      "name": "HP",
+      "price": 50000,
+      "category": "laptop",
+      "id": "fdniCgCCsxU",
+      "image":["/public/hp1.jpg"]
+    },
+    {
+      "name": "Dell ",
+      "price": 62000,
+      "category": "laptop",
+      "id": "bK1g1hDGXuz",
+      "image":["/public/dell.jpg"]
+    },
+    {
+      "name":"MI Laptop",
+      "price":"55000",
+      "category":"laptop",
+      "id":"bK1g1hDGXuy",
+      "image":["/public/milap.jpg"]
+    },
+    {
+      "name": "Iphone 14",
+      "price": 15000,
+      "category": "allproduct",
+      "id": "hpfCIrQJlsb",
+       "image":["/public/Iphone.jpg"] 
+     },
+    {
+      "name": "HP",
+      "price": 50000,
+      "category": "allproduct",
+      "id": "fdniCgCCsxy",
+      "image":"https://m.media-amazon.com/images/I/71uuMO6PstL.jpg"
+    },
+    {
+      "name": "mi phone",
+      "price": 12000,
+      "category": "allproduct",
+      "id": "bK1g1hDGXue",
+      "image":"https://cdn.mos.cms.futurecdn.net/e8PbUhgbZ7Qfy2fXdZLaFC.jpg"
+    },
+    {
+      "name": "Dell ",
+      "price": 62000,
+      "category": "allproduct",
+      "id": "bK1g1hDGXur",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvCeu4W6YdbkqM9a0vWgEtlCesbqgz0UUbA&s"
+    },
+    {
+      "name":"MI Laptop",
+      "price":"55000",
+      "category":"allproduct",
+      "id":"bK1g1hDGXuo",
+      "image":["/public/milap.jpg"]    }
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

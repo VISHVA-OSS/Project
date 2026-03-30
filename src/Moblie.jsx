@@ -1,44 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
-
-const products = [
-  {
-    id: 1,
-    name: "iPhone 14",
-    price: 80000,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZXicEBUJd7cZW6vXuNit9R6JeK_G7O1aL1w&s",
-    category: "mobile",
-  },
-  {
-    id: 2,
-    name: "MI",
-    price: 10000,
-    image:
-      "https://images.financialexpressdigital.com/2024/12/REDMI-NOTE-14-PRO-PLUS_20241206141718.jpg?w=1200",
-    category: "mobile",
-  },
-];
+import { useDispatch } from "react-redux";
+import { addToCart } from "../src/slice/cartslice";
 
 function Mobile() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  // ✅ State for API data
+  const [products, setProducts] = useState([]);
   const [showToast, setShowToast] = useState(false);
-  const [cart, setCart] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  const API = "http://localhost:3000/products"; // 🔥 Your API
+
+  // ✅ Fetch data from API
+  useEffect(() => {
+    fetch(API)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+      })
+      .catch((err) => console.log("Error:", err));
+  }, []);
+
+  // ✅ Filter mobiles
   const mobileProducts = products.filter(
     (product) => product.category === "mobile"
   );
 
+  // ✅ Add to cart
   const handleAddToCart = (product) => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
     if (isLoggedIn !== "true") {
       navigate("/login");
     } else {
-      setCart([...cart, product]);
+      dispatch(addToCart(product));
+
       setSelectedProduct(product);
       setShowToast(true);
 
@@ -48,7 +48,6 @@ function Mobile() {
 
   return (
     <div className="page-container">
-      
       {/* 🔥 Top Button */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <button className="back-btn" onClick={() => navigate("/")}>
@@ -80,6 +79,7 @@ function Mobile() {
         ))}
       </div>
 
+      {/* ✅ Toast */}
       {showToast && (
         <div className="toast show position-fixed bottom-0 end-0 m-3">
           <div className="toast-header">
